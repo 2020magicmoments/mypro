@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block box %}
+              <h1>Magic Moments</h1>
+              <span class="subheading">This time for MAGIC...</span>
+{% endblock %}
+
+
+
+{% block content %}
+
+<!--  <div class="container">-->
+    <div class="row">
+      <div class="col-lg-10 col-md-8 mx-auto">
+        <div class="post-preview">
+<!--          <a href="post.html">-->
+              {% for post in post %}
+
+                <div class="card">
+                    {% if post.post_img %}
+                        <img href="{% url 'post_detail' post.id %}" src="{{ post.post_img.url }}" style="width:600px;height:300px;">
+                    {% else %}
+                        <a>No Image</a>
+                    {% endif %}
+                      <h1 class="post-title">
+                          <a class="mr-2" href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+                        </h1>
+                      <h3 class="post-subtitle">
+                          <small class="aricle-content">{{ post.date_posted }}</small>
+                      </h3>
+                      <h3 class="post-subtitle">
+                          <p class="aricle-content">{{ post.post_data }}</p>
+                      </h3>
+                </div>
+              {% endfor %}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+

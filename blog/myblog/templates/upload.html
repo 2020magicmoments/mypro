@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload</title>
+    <h2>Upload post</h2>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <a>title</a>
+        <input type="text" name="title">
+        <a>Post data</a>
+        <input type="text" name="post_data">
+        <a>date</a>
+        <input type="datetime-local" name="date_posted">
+        <a>author</a>
+        <input type="text" name="author">
+        <input type="file" name="post_img">
+        <button type="submit">Upload file</button>
+    </form>
+
+</body>
+</html>

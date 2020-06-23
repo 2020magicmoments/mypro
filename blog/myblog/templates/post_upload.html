@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload</title>
+</head>
+<body>
+<div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-outline-info" type="submit">Post</button>
+
+
+    </form>
+</div>
+</body>
+</html>

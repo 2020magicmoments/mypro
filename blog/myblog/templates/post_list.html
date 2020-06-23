@@ -1,0 +1,42 @@
+{% extends 'basic.html' %}
+
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<table>
+    <tr>
+        <th>Post image</th>
+        <th>Post title</th>
+        <th>Post date</th>
+        <th>Post data</th>
+        <th>button</th>
+    </tr>
+{% for post in post %}
+        <tr>
+            <td>
+                {% if post.post_img %}
+                    <img href="{% url 'post_detail' post.id %}" src="{{ post.post_img.url }}" width="150" height="100">
+                {% else %}
+                    <a>No Image</a>
+                {% endif %}
+            </td>
+            <td>
+                <a class="mr-2" href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+            </td>
+            <td>
+                <small class="aricle-content">{{ post.date_posted }}</small>
+            </td>
+            <td>
+                <p class="aricle-content">{{ post.post_data }}</p>
+
+            </td>
+
+            <td>
+            <a class="btn btn-outline-danger" href="{% url 'post_delete' post.id %}">Delete</a>
+            </td>
+        </tr>
+
+{% endfor %}
+</table>
+{% endblock %}

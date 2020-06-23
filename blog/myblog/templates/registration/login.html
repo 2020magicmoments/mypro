@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+
+
+{% block box %}
+{% load crispy_forms_tags %}
+    <form method="post" class="form-group">
+        {% csrf_token %}
+        {{form|crispy}}
+    <button type="submit" class="btn btn-success">login</button>
+
+</form>
+{% endblock %}
+</html>

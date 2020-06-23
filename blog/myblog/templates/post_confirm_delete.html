@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Post</title>
+<!--    <a href="{%url 'post_list' %}" class="btn btn-primary">Back to Posts</a>-->
+</head>
+<body>
+<!--<article class="media content-section">-->
+<!--    {% if post.post_img %}-->
+<!--    <img src="{{ post.post_img.url }}" width="150" height="100">-->
+<!--    {% endif %}-->
+<!--    <div class="article-metdata">-->
+<!--        <h2>Are you sure</h2>-->
+<!--        <a class="mr-2">{{ post.title }}</a>-->
+<!--        <small class="aricle-content">{{ post.date_posted }}</small>-->
+<!--        <p class="aricle-content">{{ post.post_data }}</p>-->
+<!--    </div>-->
+<!--</article>-->
+<!--    <h2>Are you sure"{{ post.title }}"</h2>-->
+<!--    <button class="btn btn-outline-danger" type="submit" value="Confirm">Yes , Delete</button>-->
+<form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ post.title }}"?</p>
+    <input type="submit" value="Confirm">
+</form>
+    <a class="btn btn-outline-secondary" href="{%url 'post_list' %}">Cancel</a>
+</body>
+</html>

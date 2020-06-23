@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block box %}
+              <h1>Magic Moments</h1>
+              <span class="subheading">This time for MAGIC...</span>
+{% endblock %}
+{%  %}
+{% block content %}
+<article class="media content-section">
+    {% if post.post_img %}
+    <img src="{{ post.post_img.url }}" width="450" height="250">
+    {% endif %}
+    <div class="article-metdata">
+
+        <h2 class="mr-2">{{ post.title }}</h2>
+        <small class="aricle-content">{{ post.date_posted }}</small>
+        <hr>
+        <p class="aricle-content">{{ post.post_data }}</p>
+    </div>
+</article>
+{% endblock %}

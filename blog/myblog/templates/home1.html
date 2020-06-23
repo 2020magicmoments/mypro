@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% block box %}
+              <h1>Magic Moments</h1>
+              <span class="subheading">This time for MAGIC...</span>
+{% endblock %}
+
+
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+          <a href="post.html">
+              {% for post in post %}
+               <tr>
+            <td>
+                {% if post.post_img %}
+                    <img href="{% url 'post_detail' post.id %}" src="{{ post.post_img.url }}" width="150" height="100">
+                {% else %}
+                    <a>No Image</a>
+                {% endif %}
+            </td>
+            <td>
+                <a class="mr-2" href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+            </td>
+            <td>
+                <small class="aricle-content">{{ post.date_posted }}</small>
+            </td>
+            <td>
+                <p class="aricle-content">{{ post.post_data }}</p>
+
+            </td>
+
+            <td>
+            <a class="btn btn-outline-danger" href="{% url 'post_delete' post.id %}">Delete</a>
+            </td>
+        </tr>
+                <h2 class="post-title">
+                  Man must explore, and this is exploration at its greatest
+                </h2>
+                <h3 class="post-subtitle">
+                  Problems look mighty small from 150 miles up
+                </h3>
+              {% endfor %}
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">Start Bootstrap</a>
+            on September 24, 2019</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+

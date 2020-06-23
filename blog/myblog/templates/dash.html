@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dash</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+    <p>
+        <a href="{%url 'dash' %}" class="btn btn-primary">Upload</a>
+    </p>
+    <table class="table">
+        <thead>
+            <th>Title</th>
+            <th>Post</th>
+            <th>Image</th>
+        </thead>
+        <tbody>
+            {% for Post in Posts %}
+                <tr>
+                   <td>{{Post.title}}</td>
+                   <td>{{Post.post_data}}</td>
+                    {% if Post.post_img %}
+                        <img src="{{ Post.post_img }}" alt="{{ Post.title }}" style="width:100px;">
+                    {% endif %}
+                </tr>
+            {% endfor %}
+
+
+
+        </tbody>
+   </table>
+
+
+
+    <a class="ml-2" href="{% url 'logout' %}">logout</a>
+{% else %}
+    login plz
+    <a class="ml-2" href="{% url 'login' %}">login</a>
+{% endif %}
+
+</body>
+</html>
